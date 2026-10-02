@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surya | C Programmer & Lifter</title>
+  <meta name="description" content="Surya writes C close to the metal and trains close to failure. Projects, skills and training log.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="#top" class="logo">surya</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work">Projects</a>
+    <a href="#gym">Training</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <img src="surya.jpg" alt="Surya sitting on a sea wall at sunset, looking at the city skyline" class="hero-img">
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <h1>Surya</h1>
+      <p class="tagline">I write C that talks straight to the machine, and I lift to stay strong enough to debug it at 2 a.m.</p>
+      <pre class="code hero-code" aria-label="Short C program describing Surya"><code id="typed"></code><span class="caret"></span></pre>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap about">
+    <h2>Low-level code. Heavy weights.</h2>
+    <div class="about-grid">
+      <div>
+        <p>C taught me how computers really work: memory, pointers, the stack, and what happens when you get it wrong. I like programs that are small, fast and honest about what they do.</p>
+        <p>The gym taught me the same lesson from the other side. Progress is boring, repeatable and compounding. Show up, add a little weight, log it, repeat.</p>
+        <p>I bring that habit to code: write it, test it, profile it, make it a bit better next week.</p>
+      </div>
+      <pre class="code"><code><span class="k">struct</span> Surya {
+  <span class="t">char</span>  *role    = <span class="s">"C programmer"</span>;
+  <span class="t">char</span>  *habit   = <span class="s">"gym, 5 days a week"</span>;
+  <span class="t">int</span>    bugs    = <span class="n">0</span>;  <span class="c">// ask me later</span>
+  <span class="t">bool</span>   curious = <span class="n">true</span>;
+};</code></pre>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="wrap skills">
+    <h2>What I work with</h2>
+    <ul class="skill-list">
+      <li><strong>C language</strong><span>Pointers, structs, dynamic memory, function pointers, bit manipulation</span></li>
+      <li><strong>Data structures</strong><span>Linked lists, stacks, queues, hash tables, trees, written from scratch</span></li>
+      <li><strong>Tooling</strong><span>gcc, gdb, make, valgrind, Git, Linux command line</span></li>
+      <li><strong>Systems basics</strong><span>File I/O, processes, signals, sockets, embedded-style thinking</span></li>
+      <li><strong>Web basics</strong><span>HTML, CSS and JavaScript, like the page you are on</span></li>
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="work" class="wrap work">
+    <h2>Projects</h2>
+    <p class="note">Replace these with your real projects and add your GitHub links.</p>
+    <div class="projects">
+      <article class="project">
+        <h3>Tiny Shell</h3>
+        <p>A Unix shell in C with pipes, redirection and background jobs. Built with fork, exec and wait.</p>
+        <p class="stack">C, POSIX, gdb</p>
+        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Custom malloc</h3>
+        <p>A memory allocator with a free list and block coalescing, tested against real programs.</p>
+        <p class="stack">C, valgrind, make</p>
+        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Terminal Snake</h3>
+        <p>The classic game running in the console, with raw keyboard input and a fixed frame loop.</p>
+        <p class="stack">C, ncurses</p>
+        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Gym Log CLI</h3>
+        <p>A command-line tracker that saves sets, reps and weight to a file and prints personal records.</p>
+        <p class="stack">C, file I/O</p>
+        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- GYM -->
+  <section id="gym" class="gym">
+    <div class="wrap">
+      <h2>Training log</h2>
+      <p class="note">Pick a day. Edit the numbers in script.js to match your own lifts.</p>
+      <div class="tabs" role="tablist" aria-label="Training split">
+        <button role="tab" aria-selected="true" data-day="push">Push</button>
+        <button role="tab" aria-selected="false" data-day="pull">Pull</button>
+        <button role="tab" aria-selected="false" data-day="legs">Legs</button>
+      </div>
+      <div class="lifts" id="lifts" role="tabpanel" aria-live="polite"></div>
+      <p class="gym-line">Rule I follow: add one rep or a little weight each week, and never skip the warm-up.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap contact">
+    <h2>Let's build something</h2>
+    <p>Open to internships, junior C or embedded roles, and projects where performance matters.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:youremail@example.com">youremail@example.com</a>
+      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Surya. Written in plain HTML, CSS and JS.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
