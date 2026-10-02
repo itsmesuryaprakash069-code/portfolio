@@ -67,3 +67,73 @@ function showDay(day) {
 
 tabs.forEach(t => t.addEventListener("click", () => showDay(t.dataset.day)));
 showDay("push");
+
+// ---------- 3. Scroll progress bar + nav state ----------
+const nav = document.querySelector(".nav");
+const bar = document.getElementById("progress");
+window.addEventListener("scroll", () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  bar.style.width = (scrollY / max) * 100 + "%";
+  nav.classList.toggle("scrolled", scrollY > 40);
+}, { passive: true });
+
+const navLinks = document.querySelectorAll(".nav nav a");
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle("active", a.hash === "#" + e.target.id));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+document.querySelectorAll("section[id]").forEach(s => spy.observe(s));
+
+// ---------- 4. Stats count up (runs once when visible) ----------
+const counters = document.querySelectorAll("[data-count]");
+const countObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = +el.dataset.count;
+    if (reduceMotion) { el.textContent = end.toLocaleString(); }
+    else {
+      const t0 = performance.now(), dur = 1400;
+      const step = now => {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    obs.unobserve(el);
+  });
+}, { threshold: .6 });
+counters.forEach(c => countObs.observe(c));
+
+// ---------- 5. Interactive terminal ----------
+const out = document.getElementById("termOut");
+const input = document.getElementById("termIn");
+const commands = {
+  help: "Commands: about, skills, projects, gym, now, contact, clear",
+  about: "Surya. C programmer. Gym enthusiast. Likes small, fast programs and heavy barbells.",
+  skills: "C, pointers, memory management, data structures, gcc, gdb, make, valgrind, Git, Linux.",
+  projects: "tiny-shell, custom-malloc, terminal-snake, gym-log-cli. See the Projects section.",
+  gym: "Push / Pull / Legs. Rule: add a little every week, and log it.",
+  now: "Learning system calls. Building a shell. Looking for a C or embedded role.",
+  contact: "youremail@example.com  |  github.com/your-username"
+};
+function print(text, cls = "") {
+  const d = document.createElement("div");
+  if (cls) d.className = cls;
+  d.textContent = text;
+  out.appendChild(d);
+  out.scrollTop = out.scrollHeight;
+}
+print("Welcome. Type 'help' to see what I can do.");
+input.addEventListener("keydown", e => {
+  if (e.key !== "Enter") return;
+  const cmd = input.value.trim().toLowerCase();
+  input.value = "";
+  if (!cmd) return;
+  print("$ " + cmd, "cmd");
+  if (cmd === "clear") out.innerHTML = "";
+  else if (commands[cmd]) print(commands[cmd]);
+  else print(`${cmd}: command not found. Try 'help'.`, "err");
+});
+document.getElementById("terminal").addEventListener("click", () => input.focus());
