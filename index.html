@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Surya | C Programmer & Lifter</title>
-  <meta name="description" content="Surya writes C close to the metal and trains close to failure. Projects, skills and training log.">
+  <title>Surya | C Programmer</title>
+  <meta name="description" content="Surya is a C programmer who trains at the gym. About, skills, projects and contact.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -14,116 +14,74 @@
 <div class="progress" id="progress"></div>
 
 <header class="nav">
-  <a href="#top" class="logo">surya</a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#work">Projects</a>
-    <a href="#gym">Training</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav-in">
+    <a href="#top" class="logo">surya</a>
+    <nav id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#gym">Training</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
-  <!-- HERO -->
   <section class="hero">
-    <img src="surya.jpg" alt="Surya sitting on a sea wall at sunset, looking at the city skyline" class="hero-img">
+    <img src="surya.jpg" alt="Sunset over the sea with a city skyline in the distance" class="hero-img">
     <div class="hero-shade"></div>
     <div class="hero-copy">
       <h1>Surya</h1>
-      <p class="tagline">I write C that talks straight to the machine, and I lift to stay strong enough to debug it at 2 a.m.</p>
-      <pre class="code hero-code" aria-label="Short C program describing Surya"><code id="typed"></code><span class="caret"></span></pre>
+      <p class="tagline">C programmer. I like knowing how things work underneath, and I train at the gym to stay sharp.</p>
+      <pre class="code hero-code" aria-label="Short C program"><code id="typed"></code><span class="caret"></span></pre>
       <div class="cta">
-        <a class="btn primary" href="#work">See my projects</a>
-        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn primary" href="#about">About me</a>
+        <a class="btn" href="#contact">Contact</a>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats" aria-label="Quick numbers">
-    <div><b data-count="12">0</b><span>C projects built</span></div>
-    <div><b data-count="2000">0</b><span>lines of C per month</span></div>
-    <div><b data-count="5">0</b><span>gym days a week</span></div>
-    <div><b data-count="365">0</b><span>days of showing up</span></div>
+  <section class="wrap glance" aria-label="At a glance">
+    <dl>
+      <div><dt>Main language</dt><dd>C</dd></div>
+      <div><dt>Also working with</dt><dd>HTML, CSS, JavaScript</dd></div>
+      <div><dt>Outside code</dt><dd>Gym training</dd></div>
+    </dl>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="wrap about">
-    <h2>Low-level code. Heavy weights.</h2>
+    <h2>About me</h2>
     <div class="about-grid">
       <div>
-        <p>C taught me how computers really work: memory, pointers, the stack, and what happens when you get it wrong. I like programs that are small, fast and honest about what they do.</p>
-        <p>The gym taught me the same lesson from the other side. Progress is boring, repeatable and compounding. Show up, add a little weight, log it, repeat.</p>
-        <p>I bring that habit to code: write it, test it, profile it, make it a bit better next week.</p>
+        <p>I'm Surya, a C programmer. I enjoy C because it shows you exactly what the computer is doing: memory, pointers and the cost of every choice.</p>
+        <p>Outside of code I train at the gym. It taught me that steady, repeated effort beats bursts of motivation, and I try to work the same way on software.</p>
       </div>
       <pre class="code"><code><span class="k">struct</span> Surya {
-  <span class="t">char</span>  *role    = <span class="s">"C programmer"</span>;
-  <span class="t">char</span>  *habit   = <span class="s">"gym, 5 days a week"</span>;
-  <span class="t">int</span>    bugs    = <span class="n">0</span>;  <span class="c">// ask me later</span>
-  <span class="t">bool</span>   curious = <span class="n">true</span>;
+  <span class="t">char</span> *language = <span class="s">"C"</span>;
+  <span class="t">char</span> *outside  = <span class="s">"gym"</span>;
+  <span class="t">int</span>   learning = <span class="n">1</span>;
 };</code></pre>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="wrap skills">
-    <h2>What I work with</h2>
-    <ul class="skill-list">
-      <li><strong>C language</strong><span>Pointers, structs, dynamic memory, function pointers, bit manipulation</span></li>
-      <li><strong>Data structures</strong><span>Linked lists, stacks, queues, hash tables, trees, written from scratch</span></li>
-      <li><strong>Tooling</strong><span>gcc, gdb, make, valgrind, Git, Linux command line</span></li>
-      <li><strong>Systems basics</strong><span>File I/O, processes, signals, sockets, embedded-style thinking</span></li>
-      <li><strong>Web basics</strong><span>HTML, CSS and JavaScript, like the page you are on</span></li>
-    </ul>
+  <section id="skills" class="wrap skills">
+    <h2>Skills</h2>
+    <ul class="skill-list" id="skillList"></ul>
   </section>
 
-  <!-- JOURNEY -->
-  <section class="wrap journey">
-    <h2>How I got here</h2>
-    <ol class="timeline">
-      <li><time>Year 1</time><h3>Wrote my first "Hello, World" in C</h3><p>Compiled it, ran it, then spent a week finding out why my pointer crashed it.</p></li>
-      <li><time>Year 2</time><h3>Built data structures from scratch</h3><p>Linked lists, stacks and hash tables with no libraries, just malloc and patience.</p></li>
-      <li><time>Year 3</time><h3>Started training seriously</h3><p>Learned that a plan and a log beat motivation every time.</p></li>
-      <li><time>Now</time><h3>Systems projects and heavier lifts</h3><p>Working on shells, allocators and a personal best on every main lift.</p></li>
-    </ol>
-    <p class="note">Edit these four steps with your real dates and milestones.</p>
-  </section>
-
-  <!-- PROJECTS -->
   <section id="work" class="wrap work">
     <h2>Projects</h2>
-    <p class="note">Replace these with your real projects and add your GitHub links.</p>
-    <div class="projects">
-      <article class="project">
-        <h3>Tiny Shell</h3>
-        <p>A Unix shell in C with pipes, redirection and background jobs. Built with fork, exec and wait.</p>
-        <p class="stack">C, POSIX, gdb</p>
-        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
-      </article>
-      <article class="project">
-        <h3>Custom malloc</h3>
-        <p>A memory allocator with a free list and block coalescing, tested against real programs.</p>
-        <p class="stack">C, valgrind, make</p>
-        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
-      </article>
-      <article class="project">
-        <h3>Terminal Snake</h3>
-        <p>The classic game running in the console, with raw keyboard input and a fixed frame loop.</p>
-        <p class="stack">C, ncurses</p>
-        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
-      </article>
-      <article class="project">
-        <h3>Gym Log CLI</h3>
-        <p>A command-line tracker that saves sets, reps and weight to a file and prints personal records.</p>
-        <p class="stack">C, file I/O</p>
-        <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
-      </article>
-    </div>
+    <div class="projects" id="projectList"></div>
   </section>
 
-  <!-- TERMINAL -->
+  <section id="journey" class="wrap journey">
+    <h2>Journey</h2>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
   <section class="wrap term-sec">
-    <h2>Talk to my terminal</h2>
+    <h2>Quick terminal</h2>
     <p class="note">Type a command and press Enter. Try help.</p>
     <div class="terminal" id="terminal">
       <div class="term-out" id="termOut" aria-live="polite"></div>
@@ -131,46 +89,26 @@
     </div>
   </section>
 
-  <!-- GYM -->
   <section id="gym" class="gym">
     <div class="wrap">
-      <h2>Training log</h2>
-      <p class="note">Pick a day. Edit the numbers in script.js to match your own lifts.</p>
-      <div class="tabs" role="tablist" aria-label="Training split">
-        <button role="tab" aria-selected="true" data-day="push">Push</button>
-        <button role="tab" aria-selected="false" data-day="pull">Pull</button>
-        <button role="tab" aria-selected="false" data-day="legs">Legs</button>
+      <h2>Training</h2>
+      <p class="gym-line">The gym is a regular part of my life. I treat it like code: small improvements, tracked over time.</p>
+      <div id="gymLifts" hidden>
+        <div class="tabs" role="tablist" aria-label="Training day" id="tabs"></div>
+        <div class="lifts" id="lifts" role="tabpanel" aria-live="polite"></div>
       </div>
-      <div class="lifts" id="lifts" role="tabpanel" aria-live="polite"></div>
-      <p class="gym-line">Rule I follow: add one rep or a little weight each week, and never skip the warm-up.</p>
     </div>
   </section>
 
-  <!-- NOW -->
-  <section class="wrap now">
-    <h2>Right now</h2>
-    <div class="now-grid">
-      <div><h3>Learning</h3><p>Linux system calls, networking in C, and reading other people's code.</p></div>
-      <div><h3>Building</h3><p>A small shell and an allocator, with tests for both.</p></div>
-      <div><h3>Lifting for</h3><p>A bodyweight deadlift and strict pull-ups with extra weight.</p></div>
-      <div><h3>Looking for</h3><p>An internship or junior role writing C, embedded or systems code.</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section id="contact" class="wrap contact">
-    <h2>Let's build something</h2>
-    <p>Open to internships, junior C or embedded roles, and projects where performance matters.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:youremail@example.com">youremail@example.com</a>
-      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    <h2>Contact</h2>
+    <p>If you want to talk about C, a project or a role, send me a message.</p>
+    <div class="cta" id="contactLinks"></div>
   </section>
 </main>
 
 <footer>
-  <p>Surya. Written in plain HTML, CSS and JS.</p>
+  <div class="foot-in"><p>&copy; <span id="year"></span> Surya</p><p>Built with plain HTML, CSS and JavaScript.</p></div>
 </footer>
 
 <script src="script.js"></script>
