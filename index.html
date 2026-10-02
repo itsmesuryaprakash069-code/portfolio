@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="progress" id="progress"></div>
 
 <header class="nav">
   <a href="#top" class="logo">surya</a>
@@ -36,6 +37,14 @@
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Quick numbers">
+    <div><b data-count="12">0</b><span>C projects built</span></div>
+    <div><b data-count="2000">0</b><span>lines of C per month</span></div>
+    <div><b data-count="5">0</b><span>gym days a week</span></div>
+    <div><b data-count="365">0</b><span>days of showing up</span></div>
   </section>
 
   <!-- ABOUT -->
@@ -66,6 +75,18 @@
       <li><strong>Systems basics</strong><span>File I/O, processes, signals, sockets, embedded-style thinking</span></li>
       <li><strong>Web basics</strong><span>HTML, CSS and JavaScript, like the page you are on</span></li>
     </ul>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="wrap journey">
+    <h2>How I got here</h2>
+    <ol class="timeline">
+      <li><time>Year 1</time><h3>Wrote my first "Hello, World" in C</h3><p>Compiled it, ran it, then spent a week finding out why my pointer crashed it.</p></li>
+      <li><time>Year 2</time><h3>Built data structures from scratch</h3><p>Linked lists, stacks and hash tables with no libraries, just malloc and patience.</p></li>
+      <li><time>Year 3</time><h3>Started training seriously</h3><p>Learned that a plan and a log beat motivation every time.</p></li>
+      <li><time>Now</time><h3>Systems projects and heavier lifts</h3><p>Working on shells, allocators and a personal best on every main lift.</p></li>
+    </ol>
+    <p class="note">Edit these four steps with your real dates and milestones.</p>
   </section>
 
   <!-- PROJECTS -->
@@ -100,6 +121,16 @@
     </div>
   </section>
 
+  <!-- TERMINAL -->
+  <section class="wrap term-sec">
+    <h2>Talk to my terminal</h2>
+    <p class="note">Type a command and press Enter. Try help.</p>
+    <div class="terminal" id="terminal">
+      <div class="term-out" id="termOut" aria-live="polite"></div>
+      <label class="term-line"><span>surya@portfolio:~$</span><input id="termIn" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command"></label>
+    </div>
+  </section>
+
   <!-- GYM -->
   <section id="gym" class="gym">
     <div class="wrap">
@@ -112,6 +143,17 @@
       </div>
       <div class="lifts" id="lifts" role="tabpanel" aria-live="polite"></div>
       <p class="gym-line">Rule I follow: add one rep or a little weight each week, and never skip the warm-up.</p>
+    </div>
+  </section>
+
+  <!-- NOW -->
+  <section class="wrap now">
+    <h2>Right now</h2>
+    <div class="now-grid">
+      <div><h3>Learning</h3><p>Linux system calls, networking in C, and reading other people's code.</p></div>
+      <div><h3>Building</h3><p>A small shell and an allocator, with tests for both.</p></div>
+      <div><h3>Lifting for</h3><p>A bodyweight deadlift and strict pull-ups with extra weight.</p></div>
+      <div><h3>Looking for</h3><p>An internship or junior role writing C, embedded or systems code.</p></div>
     </div>
   </section>
 
